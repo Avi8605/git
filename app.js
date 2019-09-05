@@ -13,7 +13,8 @@ app.listen(3000);
 app.use(require('body-parser').json());
 
 app.use('/account/create', require('./api/account/create'));
-
+var acountController = require('../node/api/account/create');
+app.post(acountController);
 console.log('app running on port 3000...');
 
 module.exports = app;
