@@ -9,12 +9,16 @@ mongoose.connect('mongodb://localhost:27017/codeTest', {
 
 const app = express();
 app.listen(3000);
+let apiRoutes = require("./api-routes");
 
 app.use(require('body-parser').json());
 
 app.use('/account/create', require('./api/account/create'));
 var acountController = require('../node/api/account/create');
 app.post(acountController);
+
+app.use('/notifications', apiRoutes);
+
 console.log('app running on port 3000...');
 
 module.exports = app;
