@@ -9,6 +9,7 @@ router.route('/')
 
 router.route('/:contact_id')
     .get(contactController.view)
+    .delete(contactController.delete);
 
 
 module.exports = router;

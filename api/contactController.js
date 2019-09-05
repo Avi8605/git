@@ -26,3 +26,14 @@ exports.view = function (req, res) {
         });
     });
 };
+exports.delete = function (req, res) {
+    Contact.remove({
+        _id: req.params.contact_id
+    }, function (err, contact) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: 'Contact deleted'
+        });
+    });
+};
