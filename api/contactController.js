@@ -17,3 +17,12 @@ exports.new = function (req, res) {
             });
     });
 };
+exports.view = function (req, res) {
+    Contact.findById(req.params.contact_id, function (err, contact) {
+        if (err)
+            res.send(err);
+        res.json({
+            data: contact
+        });
+    });
+};
